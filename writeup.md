@@ -12,7 +12,7 @@ The goals / steps of this project are the following:
 [image3]: ./examples/3.jpg "3"
 [image4]: ./examples/4.jpg "4"
 [image5]: ./examples/5.jpg "5"
-[image6]: ./examples/6.jpg "6"
+[image6]: ./examples/6.png "6"
 
 ---
 
@@ -22,23 +22,23 @@ The goals / steps of this project are the following:
 
 My pipeline consisted of 5 steps.
 
-1. I converted the images to grayscale.
+Firstly, I converted the images to grayscale.
 
 ![alt text][image1]
 
-2. I applied Gaussian Blur to make it more smoth and reduce the noise.
+Secondly, I applied Gaussian Blur to make it more smoth and reduce the noise.
 
 ![alt text][image2]
 
-3. Use Canny edge detection. I set the lower_bound to 50 and upper_bound to 150 in this project.
+Third, Use Canny edge detection. I set the lower_bound to 50 and upper_bound to 150 in this project.
 
 ![alt text][image3]
 
-4. I set a regutangular area to filter out any countent which is not in this area. I basically did it by the intuition of myself.
+Fourth, I set a regutangular area to filter out any countent which is not in this area. I basically did it by the intuition of myself.
 
 ![alt text][image4]
 
-5. This part is about transform to Hough Space and find the lines. 
+Fifth, This part is about transform to Hough Space and find the lines. 
 ![alt text][image5]
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by the following:
