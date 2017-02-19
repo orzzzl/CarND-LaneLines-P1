@@ -46,42 +46,23 @@ In order to draw a single line on the left and right lanes, I modified the draw_
 One challenge is that you need to make the solid line segments into a straight line. The modification I made is that first you split all the line segments into the left part and the right part by their x cordinates. Then I sort the line segments by their y values in reverse order. And then I iterate those line segments and add the missing part. I did this process for both the left and right part separately. It can be illustrate as following:
 ![alt text][image6]
 
+As you can see the red part is what I add to make it a straight line.
 
 ###2. Identify potential shortcomings with your current pipeline
 
 
-One potential shortcoming would be what would happen when ... 
+So of course there is lots of problems. The first biggest problem is that in step 3 I set up a poly region just by my intuition.
+The goal is to filter out any other part which is outside the lane line. But what if the view point just changes a little and it won't fit into my region? And what if I change the resolution of my camera? This part should definitely be changed if we want to make our stuff practical useful.
 
-Another shortcoming could be ...
-
-
-###3. Suggest possible improvements to your pipeline
-
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
-
-###1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
-
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
-![alt text][image1]
-
-
-###2. Identify potential shortcomings with your current pipeline
-
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
+Another potential issue is that we use Hough Space transformation and tunes a few parameters to find the lines. But I feel like this method is not strong robust enough. It's still not good enough to filtering any other lines out in our sight. I am wondering if their is any more advanced techniques other than tuning our hyper-parameters?
 
 
 ###3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+I am fine with step 1- 3 after which I get a binary image after canny edge detection. Then after that I guess we should do some deep learning stuff to detech the lane lines.
 
-Another potential improvement could be to ...
+I just have a feeling that it's not the right way to select a poly-region and tuning parameters to find it. Our method should be more general and robust that it should always do a good job whenever you put the camera, it's night or day, etc.
+
+One thing I'm thinking is that maybe after canny edge detection we can treat every pixel as a feature and build a neuron network out of it. And the pixel which is on the lane line will be marked as true while others will be marked as false. 
+
+And I will always be curious about if there is any other possibilities to improve it.
