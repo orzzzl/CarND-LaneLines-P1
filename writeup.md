@@ -52,9 +52,9 @@ As you can see the red part is what I add to make it a straight line.
 
 
 So of course there is lots of problems. The first biggest problem is that in step 3 I set up a poly region just by my intuition.
-The goal is to filter out any other part which is outside the lane line. But what if the view point just changes a little and it won't fit into my region? And what if I change the resolution of my camera? This part should definitely be changed if we want to make our stuff practical useful.
+The goal is to filter out any other part which is outside the lane line. But what if the view point just changes a little and it won't fit into my region? And what if I change the resolution of my camera? This part should definitely be changed if we want to make our stuff practically useful.
 
-Another potential issue is that we use Hough Space transformation and tunes a few parameters to find the lines. But I feel like this method is not strong robust enough. It's still not good enough to filtering any other lines out in our sight. I am wondering if their is any more advanced techniques other than tuning our hyper-parameters?
+Another potential issue is that we use Hough Space transformation and tunes a few parameters to find the lines. But I feel like this method is not robust enough. It's still not good enough to filtering any other lines out in our sight. I am wondering if their is any more advanced techniques other than tuning our hyper-parameters?
 
 
 ###3. Suggest possible improvements to your pipeline
@@ -63,6 +63,6 @@ I am fine with step 1- 3 after which I get a binary image after canny edge detec
 
 I just have a feeling that it's not the right way to select a poly-region and tuning parameters to find it. Our method should be more general and robust that it should always do a good job whenever you put the camera, it's night or day, etc.
 
-One thing I'm thinking is that maybe after canny edge detection we can treat every pixel as a feature and build a neuron network out of it. And the pixel which is on the lane line will be marked as true while others will be marked as false. 
+One thing I'm thinking about is that maybe after canny edge detection we can treat every pixel as a feature and build a neuron network out of it. And the pixel which is on the lane line will be marked as true while others will be marked as false. Then we can train it using some training data and let it figure it out itself.
 
-And I will always be curious about if there is any other possibilities to improve it.
+And I am curious about if there is any other possibilities to improve it.
